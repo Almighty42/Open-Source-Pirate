@@ -1,0 +1,9 @@
+.articles {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  .article {
+    display: flex;
+    justify-content: space-between;
+  }
+}
