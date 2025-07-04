@@ -1,0 +1,27 @@
+    {
+        "article_23": {
+            "id": 23,
+            "title": "My first article",
+            "created_at": "August 7, 2024",
+            "content": "Hello world"
+        },
+        "article_45": {
+            "id": 45,
+            "title": "My second article",
+            "created_at": "August 8, 2024",
+            "content": "Hello world 2"
+        },
+        "article_11": {
+            "id": 11,
+            "title": "My third article",
+            "created_at": "July 27, 2024",
+            "content": "Hello world 3"
+
+        },
+        "article_101": {
+            "id": 101,
+            "title": "My fourth article",
+            "created_at": "August 7, 2024",
+            "content": "Hello world 4"
+        }
+    }
