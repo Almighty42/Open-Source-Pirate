@@ -4,10 +4,22 @@
         <link rel="stylesheet"
             <link rel="stylesheet"
                   href="{{ url_for('static', filename='css/style.css') }}">
-            <title>{{ title }} - Open Source Pirate</title>
+            {% if title %}
+                <title>{{ title }} - Open Source Pirate</title>
+            {% else %}
+                <title>Open Source Pirate</title>
+            {% endif %}
         </head>
         <body>
             <h1>Open Source Pirate</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <a href="/login">Admin login</a>
             {% block content %}{% endblock %}
         </body>
     </html>

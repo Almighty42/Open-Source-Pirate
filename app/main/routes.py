@@ -41,4 +41,4 @@ def article(id):
     article = next((item for item in articles if item['id'] == id), None)
     if not article:
         abort(404)
-    return render_template('article.jinja', article=article)
+    return render_template('article.jinja', title="Article", article=article)
