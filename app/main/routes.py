@@ -1,12 +1,10 @@
-from __future__ import print_function
 from flask import render_template, abort
 from app.main import bp
 import json
 from os import environ
+from os import path
 
 # TODO: REMOVE THIS ONCE THE DATABASE HAS BEEN IMPLEMENTED
-
-import sys
 
 def write_json(path, json_data):
     with open(path, 'w') as file_out:
@@ -17,49 +15,28 @@ def read_json(path):
     with open(path) as file_in:
         return json.load(file_in)
 
+# Loads data.json and returns a valid dictionary
+def json_handler():
+    project_path = environ.get('PROJECT_PATH')
+    if project_path is None:
+        raise ValueError("PROJECT PATH environment variable is not set")
+    data_path = path.join(project_path, "app/static/data.json")
+    json_articles = read_json(data_path )
+    articles = list(json_articles.values())
+    return articles
+
 @bp.route('/')
 @bp.route('/home')
 def index():
 
-    json_articles = read_json(environ.get('PROJECT_PATH') + "app/static/data.json")
+    articles = json_handler()
 
-    r = json.dumps(json_articles)
-    loaded_r = json.loads(r)
-
-    print(json_articles.article_23, file=sys.stderr)
-
-    return render_template('index.jinja', title="Home", articles=loaded_r)
+    return render_template('index.jinja', title="Home", articles=articles)
 
 @bp.route('/article/<int:id>')
 def article(id):
 
-    articles = [
-        {
-            'id': 23,
-            'title': 'My first article',
-            'created_at': 'August 7, 2024',
-            'content': 'Hello world'
-        },
-        {
-            'id': 45,
-            'title': 'My second article',
-            'created_at': 'August 8, 2024',
-            'content': 'Hello world 2'
-        },
-        {
-            'id': 11,
-            'title': 'My third article',
-            'created_at': 'July 27, 2024',
-            'content': 'Hello world 3'
-
-        },
-        {
-            'id': 101,
-            'title': 'My fourth article',
-            'created_at': 'August 7, 2024',
-            'content': 'Hello world 4'
-        },
-    ]
+    articles = json_handler()
 
     article = next((item for item in articles if item['id'] == id), None)
     if not article:
