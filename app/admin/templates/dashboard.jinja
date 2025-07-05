@@ -1,0 +1,15 @@
+{% extends "/base.jinja" %}
+{% block content %}
+    <a href="#">Add new</a>
+    <div class="articles">
+        {% for article in articles %}
+            <div class="article">
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.created_at }}</p>
+                <a href="/article/{{ article.id }}">View more</a>
+                <a href="/article/{{ article.id }}">Edit</a>
+                <a href="/article/{{ article.id }}">Delete</a>
+            </div>
+        {% endfor %}
+        <div>
+        {% endblock %}
