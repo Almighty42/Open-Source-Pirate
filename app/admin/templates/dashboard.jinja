@@ -7,7 +7,7 @@
                 <h2>{{ article.title }}</h2>
                 <p>{{ article.created_at }}</p>
                 <a href="/article/{{ article.id }}">View more</a>
-                <a href="/article/{{ article.id }}">Edit</a>
+                <a href="/edit/{{ article.id }}">Edit</a>
                 <a href="/article/{{ article.id }}">Delete</a>
             </div>
         {% endfor %}

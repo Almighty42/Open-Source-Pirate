@@ -1,5 +1,5 @@
+from flask import redirect, render_template, flash, request, url_for, abort
 from os import environ, path
-from flask import redirect, render_template, flash, request, url_for
 from app.admin import bp
 from app.admin.forms import ArticleForm, LoginForm
 from ..utils import json_handler
@@ -64,3 +64,29 @@ def new():
     form.pub_date.data = datetime.now().strftime('%B %d, %Y')
     is_auth = current_user.is_authenticated
     return render_template('new.jinja', title="Add new article", form=form, is_auth=is_auth)
+
+@bp.route("/edit/<int:id>", methods=['GET', 'PUT'])
+@login_required
+def edit(id):
+    form = ArticleForm()
+    articles = json_handler()
+    article = next((article for article in articles if article['id'] == id), None)
+    if article is None:
+        abort(404)
+    if request.method == 'GET':
+        form.title.data = article['title']
+        form.pub_date.data = article['created_at']
+        form.content.data = article['content']
+    elif request.method == 'PUT' and request.is_json and form.validate():
+        data = request.get_json()
+        article['title'] = data.get('title', article['title'])
+        article['content'] = data.get('content', article['content'])
+        project_path = environ.get('PROJECT_PATH')
+        if project_path is None:
+            raise ValueError('PROJECT_PATH not set')
+        data_path = path.join(project_path, 'app/static/data.json')
+        with open(data_path, 'w') as file:
+            json.dump({f'article_{article["id"]}': article for article in articles}, file)
+        return redirect(url_for('main.index'))
+    is_auth = current_user.is_authenticated
+    return render_template('edit.jinja', title="Edit a article", form=form, is_auth=is_auth, article=article)
