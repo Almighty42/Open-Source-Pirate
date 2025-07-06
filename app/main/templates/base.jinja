@@ -19,7 +19,12 @@
                     </ul>
                 {% endif %}
             {% endwith %}
-            <a href="/login">Admin login</a>
+            {% if is_auth %}
+                <a href="/logout">Admin logout</a>
+                <a href="/dashboard">Dashboard</a>
+            {% else %}
+                <a href="/login">Admin login</a>
+            {% endif %}
             {% block content %}{% endblock %}
         </body>
     </html>
