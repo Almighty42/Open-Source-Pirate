@@ -65,7 +65,7 @@ def new():
     is_auth = current_user.is_authenticated
     return render_template('new.jinja', title="Add new article", form=form, is_auth=is_auth)
 
-@bp.route("/edit/<int:id>", methods=['GET', 'PUT'])
+@bp.route("/edit/<int:id>", methods=['GET', 'POST'])
 @login_required
 def edit(id):
     form = ArticleForm()
@@ -77,16 +77,16 @@ def edit(id):
         form.title.data = article['title']
         form.pub_date.data = article['created_at']
         form.content.data = article['content']
-    elif request.method == 'PUT' and request.is_json and form.validate():
-        data = request.get_json()
-        article['title'] = data.get('title', article['title'])
-        article['content'] = data.get('content', article['content'])
+    elif request.method == 'POST' and form.validate():
+        article['title'] = form.title.data
+        article['content'] = form.content.data
         project_path = environ.get('PROJECT_PATH')
         if project_path is None:
             raise ValueError('PROJECT_PATH not set')
         data_path = path.join(project_path, 'app/static/data.json')
         with open(data_path, 'w') as file:
             json.dump({f'article_{article["id"]}': article for article in articles}, file)
+        flash("Article updated successfully!")
         return redirect(url_for('main.index'))
     is_auth = current_user.is_authenticated
     return render_template('edit.jinja', title="Edit a article", form=form, is_auth=is_auth, article=article)
