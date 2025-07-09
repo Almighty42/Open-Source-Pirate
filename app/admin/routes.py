@@ -90,3 +90,22 @@ def edit(id):
         return redirect(url_for('main.index'))
     is_auth = current_user.is_authenticated
     return render_template('edit.jinja', title="Edit a article", form=form, is_auth=is_auth, article=article)
+
+@bp.route("/delete/<int:id>", methods=['POST'])
+@login_required
+def delete(id):
+    articles = json_handler()
+    article = next((article for article in articles if article['id'] == id), None)
+    if article is None:
+        abort(404)
+    else:
+        articles.remove(article)
+        project_path = environ.get('PROJECT_PATH')
+        if project_path is None:
+            raise ValueError('PROJECT_PATH is not set')
+        data_path = path.join(project_path, 'app/static/data.json')
+        with open(data_path, 'w') as file:
+            json.dump({f'article_{article["id"]}': article for article in articles}, file)
+        flash(f'Article {id} deleted successfully!')
+        return redirect(url_for('admin.dashboard'))
+
