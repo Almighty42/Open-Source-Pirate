@@ -1,0 +1,11 @@
+session_name: Open-Source-Pirate
+windows:
+  - window_name: Development
+    panes:
+      - sourc && nvim
+  - window_name: Server
+    panes:
+      - sourc && p run.py
+  - window_name: Git
+    panes:
+      - lgit
