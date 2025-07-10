@@ -11,7 +11,7 @@ def write_json(path, json_data):
         json.dump(json_data, file_out)
 
 # Loads data.json and returns a valid dictionary
-def json_handler():
+def data_handler():
     project_path = environ.get('PROJECT_PATH')
     if project_path is None:
         raise ValueError("PROJECT PATH environment variable is not set")
@@ -19,3 +19,11 @@ def json_handler():
     json_articles = read_json(data_path )
     articles = list(json_articles.values())
     return articles
+
+def data_update(articles):
+    project_path = environ.get('PROJECT_PATH')
+    if project_path is None:
+        raise ValueError('PROJECT_PATH not set')
+    data_path = path.join(project_path, "app/static/data.json")
+    with open(data_path, 'w') as file:
+        json.dump({f"article_{article['id']}": article for article in articles}, file)
