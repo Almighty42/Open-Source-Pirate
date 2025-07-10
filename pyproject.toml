@@ -1,0 +1,50 @@
+[project]
+name = "Open Source Pirate"
+version = "1.0.0"
+description = "Almighty42 personal blog that covers technology/programming related subjects, as well as personal projects of Almighty42"
+readme = "README.md"
+license = {file = "MIT License"}
+maintainers = [{name = "Luke", email = "xenoman4202@gmail.com"}]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Blogging",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.13.5",
+    "Framework :: Flask",
+    "Operating System :: POSIX :: Linux",
+]
+dependencies = [
+    "flask",
+    "flask-wtf",
+    "flask-login",
+    "dotenv",
+    "libsass",
+]
+
+# TODO: ADD SOURCES WHEN PROJECT IS FINISHED WITH DEVELOPMENT
+[project.urls]
+Source = "https://github.com/Almighty42/Open-Source-Pirate"
+Bug Tracker = "https://github.com/Almighty42/Open-Source-Pirate/issues"
+
+# TODO:
+#[project.optional-dependencies]
+#test = ["pytest"]
+#[build-system]
+#requires = ["flit_core<4"]
+#build-backend = "flit_core.buildapi"
+#[tool.flit.module]
+#name = "flaskr"
+#[tool.flit.sdist]
+#include = [
+#    "tests/",
+#]
+#[tool.pytest.ini_options]
+#testpaths = ["tests"]
+#filterwarnings = ["error"]
+#[tool.coverage.run]
+#branch = true
+#source = ["flaskr", "tests"]
+#[tool.ruff]
+#src = ["src"]
