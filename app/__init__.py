@@ -2,10 +2,13 @@ import os
 from flask import Flask, abort
 from config import Config
 from flask_login import LoginManager
+from dotenv import load_dotenv
 
 # Session / Login manager definition
 login_manager = LoginManager()
 login_manager.login_view = "main.index"
+
+load_dotenv()
 
 def create_app(test_config = None):
     # Load configuration
