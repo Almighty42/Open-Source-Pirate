@@ -1,0 +1,51 @@
+@import "header";
+@import "footer";
+
+@font-face {
+  font-family: "osp";
+  src: url("../fonts/osp.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-light-bg: #FDFDFC;
+  --color-light-fg-1: #1A1A18;
+  --color-light-fg-2: #5B5B57;
+}
+
+body {
+  align-items: center;
+  flex-direction: column;
+}
+
+body,
+p,
+li,
+a {
+  margin: 0;
+  font-family: "osp", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+body,
+div,
+article,
+header,
+footer,
+ul {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.foreground-1 {
+  color: var(--color-light-fg-1)
+}
+
+.foreground-2 {
+  color: var(--color-light-fg-2)
+}

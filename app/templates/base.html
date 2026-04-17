@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	{% if title %}
+	<title>Open Source Pirate - {{ title }}</title>
+	{% else %}
+	<title>Open Source Pirate</title>
+	{% endif %}
+	<link rel="stylesheet" href="{{ url_for('static', filename="css/app.css") }}" />
+</head>
+
+<body>
+	{% include 'components/_header.html' %}
+
+	{% block content %}
+	{% endblock %}
+
+	{% include 'components/_footer.html' %}
+</body>
+
+</html>

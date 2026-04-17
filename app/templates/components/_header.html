@@ -1,0 +1,23 @@
+<header>
+	<div>
+		<img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Open Source Pirate Logo" />
+		<p>[Open Source Pirate]</p>
+	</div>
+	<ul>
+		<li>
+			<a class="foreground-1" href="{{ url_for('main.index') }}">[/]</a>
+		</li>
+		<li>
+			<a class="foreground-2" href="{{ url_for('main.articles') }}">[/Articles]</a>
+		</li>
+		<li>
+			<a class="foreground-2" href="{{ url_for('main.projects') }}">[/Projects]</a>
+		</li>
+		<li>
+			<a class="foreground-2" href="{{ url_for('main.about') }}">[/About]</a>
+		</li>
+		<li>
+			<a class="foreground-2" id="mode_switch">[☼]</a>
+		</li>
+	</ul>
+</header>
