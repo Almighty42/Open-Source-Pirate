@@ -1,20 +1,40 @@
 <header>
 	<div>
 		<img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Open Source Pirate Logo" />
-		<p>[Open Source Pirate]</p>
+		<p class="foreground-1">[Open Source Pirate]</p>
 	</div>
 	<ul>
 		<li>
-			<a class="foreground-1" href="{{ url_for('main.index') }}">[/]</a>
+			<a class="{{ 'foreground-1' if request.endpoint == 'main.index' else 'foreground-2' }}"
+				href="{{ url_for('main.index') }}">
+				{% if request.endpoint == 'main.index' %}
+				&#62;
+				{% endif %}
+				[/]</a>
 		</li>
 		<li>
-			<a class="foreground-2" href="{{ url_for('main.articles') }}">[/Articles]</a>
+			<a class="{{ 'foreground-1' if request.endpoint == 'main.articles' else 'foreground-2' }}"
+				href="{{ url_for('main.articles') }}">
+				{% if request.endpoint == 'main.articles' %}
+				&#62;
+				{% endif %}
+				[/Articles]</a>
 		</li>
 		<li>
-			<a class="foreground-2" href="{{ url_for('main.projects') }}">[/Projects]</a>
+			<a class="{{ 'foreground-1' if request.endpoint == 'main.projects' else 'foreground-2' }}"
+				href="{{ url_for('main.projects') }}">
+				{% if request.endpoint == 'main.projects' %}
+				&#62;
+				{% endif %}
+				[/Projects]</a>
 		</li>
 		<li>
-			<a class="foreground-2" href="{{ url_for('main.about') }}">[/About]</a>
+			<a class="{{ 'foreground-1' if request.endpoint == 'main.about' else 'foreground-2' }}"
+				href="{{ url_for('main.about') }}">
+				{% if request.endpoint == 'main.about' %}
+				&#62;
+				{% endif %}
+				[/About]</a>
 		</li>
 		<li>
 			<a class="foreground-2" id="mode_switch">[☼]</a>
