@@ -5,68 +5,64 @@ main = Blueprint("main", __name__)
 @main.route("/")
 def index():
 
-    articles = [ 
+    articles = [
             {
-            "title": "USART Protocol explained in detail",
-            "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
-            "tags": [
-                "Embedded",
-                "Topic Explained",
-                "C Programming"
+                "category": "Software Development / Embedded",
+                "title": "Use of AI in Embedded Development",
+                "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit. \n\n Lorem ipsum dolor sit amet consectetur adipiscing elit. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
+                "tags": [
+                    "Embedded",
+                    "Topic Explained",
+                    "C Programming"
                 ],
-            "img": "assets/placeholder.png"
+                "date": "02 APR 2026",
+                "read_time": "12 MIN READ"
             },
-
             {
-            "title": "RF waves and their relationship with voltages",
-            "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
-            "tags": [
-                "RF",
-                "Electronics"
+                "category": "Electronics",
+                "title": "How to use a solder properly",
+                "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit. \n\n Lorem ipsum dolor sit amet consectetur adipiscing elit. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
+                "tags": [
+                    "Electronics",
+                    "Hands-on"
                 ],
-            "img": "assets/placeholder.png"
-            },
-
-            {
-            "title": "Hardware abstraction layers and their useses",
-            "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
-            "tags": [
-                "Embedded",
-                "Topic Explained"
-                ],
-            "img": "assets/placeholder.png"
+                "date": "13 JAN 2026",
+                "read_time": "9 MIN READ"
             }
     ]
 
     projects = [ 
             {
-            "title": "FPV Quadcopter drone project",
-            "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
+            "title": "USART Driver from scratch",
+            "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit. \n\n Lorem ipsum dolor sit amet consectetur adipiscing elit. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
             "tags": [
                 "Embedded",
-                "Robotics"
+                "Topic Explained",
+                "C Programming"
                 ],
+            "category": "Software development / Embedded",
             "img": "assets/placeholder.png"
             },
 
             {
-            "title": "Light sensing camera robot project",
-            "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
+            "title": "Custom RF emmiter",
+            "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit. \n\n Lorem ipsum dolor sit amet consectetur adipiscing elit. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
             "tags": [
-                "Embedded",
-                "Robotics",
-                "Python"
+                "RF",
+                "Electronics"
                 ],
+            "category": "Hardware development / RF",
             "img": "assets/placeholder.png"
             },
 
             {
-            "title": "Personal Blog - Open Source Pirate!",
-            "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
+            "title": "SPI Driver from scratch",
+            "body": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit. \n\n Lorem ipsum dolor sit amet consectetur adipiscing elit. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.Lorem ipsum dolor sit amet consectetur adipiscing elit...",
             "tags": [
-                "Web development",
-                "Python"
+                "Embedded",
+                "Topic Explained"
                 ],
+            "category": "Software development / Embedded",
             "img": "assets/placeholder.png"
             }
     ]

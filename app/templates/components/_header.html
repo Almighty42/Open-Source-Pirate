@@ -1,6 +1,10 @@
 <header>
 	<div>
-		<img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Open Source Pirate Logo" />
+		<img
+		data-theme-image
+		data-light-src="/static/assets/logo.svg"
+		data-dark-src="/static/assets/logo_dark.svg"
+		id="site-logo" src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Open Source Pirate Logo" />
 		<p class="foreground-1">[Open Source Pirate]</p>
 	</div>
 	<ul>
@@ -10,7 +14,7 @@
 				{% if request.endpoint == 'main.index' %}
 				&#62;
 				{% endif %}
-				[/]</a>
+				[ / ]</a>
 		</li>
 		<li>
 			<a class="{{ 'foreground-1' if request.endpoint == 'main.articles' else 'foreground-2' }}"
@@ -18,7 +22,7 @@
 				{% if request.endpoint == 'main.articles' %}
 				&#62;
 				{% endif %}
-				[/Articles]</a>
+				[ /Articles ]</a>
 		</li>
 		<li>
 			<a class="{{ 'foreground-1' if request.endpoint == 'main.projects' else 'foreground-2' }}"
@@ -26,7 +30,7 @@
 				{% if request.endpoint == 'main.projects' %}
 				&#62;
 				{% endif %}
-				[/Projects]</a>
+				[ /Projects ]</a>
 		</li>
 		<li>
 			<a class="{{ 'foreground-1' if request.endpoint == 'main.about' else 'foreground-2' }}"
@@ -34,10 +38,10 @@
 				{% if request.endpoint == 'main.about' %}
 				&#62;
 				{% endif %}
-				[/About]</a>
+				[ /About ]</a>
 		</li>
 		<li>
-			<a class="foreground-2" id="mode_switch">[☼]</a>
+			<a class="foreground-2" id="mode_switch">[ ☼ ]</a>
 		</li>
 	</ul>
 </header>

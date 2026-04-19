@@ -2,4 +2,13 @@
 
 {% block content %}
 
+<div id="main-page">
+	<img 
+	data-theme-image
+	data-light-src="/static/assets/hero-about.svg"
+	data-dark-src="/static/assets/hero-about_dark.svg"
+	id="site-hero-about" class="hero" src="{{ url_for('static', filename='assets/hero-about.svg') }}" alt="Hero Section Image Svg" />
+	<h1>Open Source Pirate</h1>
+</div>
+
 {% endblock %}

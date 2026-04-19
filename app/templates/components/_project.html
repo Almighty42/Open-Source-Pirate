@@ -1,0 +1,24 @@
+{% macro project_card(project) %}
+<article class="project-card">
+	<img src="{{ url_for('static', filename=project.img) }}" />
+	<div class="project-text">
+		<p>
+			{{ project.category|upper }}
+		</p>
+		<h3>
+			<a href="#">{{ project.title }}</a>
+		</h3>
+		<div>
+			<p> {{ project.body }} </p>
+			<hr>
+			<ul class="article-tags">
+				{% for tag in project.tags %}
+				<li>
+					<a href="#">[ {{ tag|upper }} ]</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</article>
+{% endmacro %}

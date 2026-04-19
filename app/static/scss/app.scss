@@ -1,5 +1,7 @@
 @import "header";
 @import "footer";
+@import "article";
+@import "project";
 
 @import "index";
 
@@ -36,15 +38,58 @@
 // }
 
 :root {
-  --color-light-bg: #FDFDFC;
-  --color-light-fg-1: #1A1A18;
-  --color-light-fg-2: #5B5B57;
+  color-scheme: light dark;
+
+  --color-bg: #FDFDFC;
+  --color-fg-1: #1A1A18;
+  --color-fg-2: #5B5B57;
+  --color-border: #1A1A18;
+
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2.5rem;
+}
+
+html[data-theme="dark"] {
+  --color-bg: #1b1b19;
+  --color-fg-1: #e7e4dc;
+  --color-fg-2: #b7b2a7;
+  --color-border: #6c6960;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --color-bg: #121212;
+    --color-fg-1: #F5F5F0;
+    --color-fg-2: #B8B8B2;
+    --color-border: #F5F5F0;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
+  margin: 0;
+  font-size: 16px;
+  font-family: "IBM Plex Sans", sans-serif;
   align-items: center;
   flex-direction: column;
-  font-size: 16px;
+  background-color: var(--color-bg);
+  color: var(--color-fg-1);
 }
 
 body,
@@ -57,22 +102,6 @@ h3 {
   margin: 0;
 }
 
-// body,
-// p,
-// li {
-//   font-family: "IBM Plex Serif", serif;
-// }
-
-a,
-h1,
-h2,
-h3,
-p,
-li,
-body {
-  font-family: "IBM Plex Sans", sans-serif;
-}
-
 code,
 pre {
   font-family: IBM Plex Mono, monospace;
@@ -81,27 +110,28 @@ pre {
 p,
 li,
 a {
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.6;
 }
 
 small {
-  font-size: 0.875;
+  font-size: var(--text-sm);
   line-height: 1.4;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: var(--text-2xl);
   line-height: 1.2;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-xl);
   line-height: 1.3;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   line-height: 1.3;
 }
 
@@ -123,11 +153,11 @@ ul {
 }
 
 .foreground-1 {
-  color: var(--color-light-fg-1)
+  color: var(--color-fg-1)
 }
 
 .foreground-2 {
-  color: var(--color-light-fg-2)
+  color: var(--color-fg-2)
 }
 
 .bold {
